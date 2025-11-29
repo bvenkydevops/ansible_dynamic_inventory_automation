@@ -1,0 +1,28 @@
+
+
+# sudo apt-get update && apt-get upgrade -y
+# sudo apt-get install ansible -y
+# mkdir ansible_project
+# cd ansible_project
+# vi inventory.ini
+# copy pem file into this and give permissions chemod 400 file.pem
+# ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+# ansible-playbook -i inventory.ini boostrap.yaml
+# ansible-playbook -i inventory.ini 01-nginx.yaml
+# sudo apt-get install awscli -y
+#  aws configure
+#  ansible-galaxy collection install amazon.aws
+# pip install boto3
+
+ # python3 -m venv venv
+  #    source venv/bin/activate
+
+    
+# ansible-inventory -i aws_ec2.yaml all -m ping
+# ansible-inventory -i aws_ec2.yaml --graph
+# ansible-playbook -i aws_ec2.yaml boostrap.yaml -u ec2-user --private-key venky.pem
+ # ansible-playbook -i aws_ec2.yaml 04-git.yaml -u devops
+
+ # now you want to see the OutPut of git version login into any server which are dynamically created 
+ # and search file name like # cat /tmp/git_output.txt
+ 

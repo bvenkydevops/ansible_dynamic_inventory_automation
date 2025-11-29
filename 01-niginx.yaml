@@ -1,0 +1,13 @@
+- name: install nginx
+  hosts: redhat_servers
+  become: yes
+  tasks:
+  - name: install nginx web on redhat_servers
+    ansible.builtin.package:
+      name: nginx
+      state: installed
+  - name: start and enable Nginx service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes

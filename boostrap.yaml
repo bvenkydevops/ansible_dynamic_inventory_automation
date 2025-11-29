@@ -1,0 +1,25 @@
+- hosts: all
+  gather_facts: false
+  become: yes
+
+  tasks:
+    - name: Install Python on RedHat
+      raw: sudo yum install -y python3
+
+    - name: Create devops user
+      user:
+        name: devops
+        groups: wheel
+        append: yes
+        shell: /bin/bash
+
+    - name: Passwordless sudo for devops
+      lineinfile:
+        path: /etc/sudoers
+        line: "devops ALL=(ALL) NOPASSWD:ALL"
+        validate: "visudo -cf %s"
+
+    - name: Add SSH key for devops user
+      authorized_key:
+        user: devops
+        key: "{{ lookup('file','~/.ssh/id_rsa.pub') }}"
